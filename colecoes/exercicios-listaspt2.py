@@ -8,14 +8,14 @@
 #todas as informações de um jogo devem estar no mesmo indice nas listas. Criar um menu interativo com as seguintes opções para o usuario: registrar venda, Compra de estoque, resumo da loja, sair. Ao sair indicar que o caixa está fechado. O usuario deve controlar o sistema da loja, registrando as vendas e as compras de estoque, sem esquecer de alterar os valores da lista de quantidade
 
 
-print('============Bem vindo a loja de games---------------')
+print('============Bem vindo a loja de games===============')
 
 
 jogosDisponiveis = []
 precoJogos = []
 quantidadeJogos = []
 precoFabrica = []
-contador = 1
+contador = 1 
 saldoLoja = 0
 
 while contador != 0:   
@@ -102,3 +102,8 @@ for item in estoque:
         break
     
 print(f'\nSaldo final loja: {saldoLoja}, jogos disponiveis: {jogosDisponiveis}')
+
+
+
+#resolução professor
+
