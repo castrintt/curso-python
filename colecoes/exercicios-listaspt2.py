@@ -155,4 +155,53 @@ while op != 4:
     else:
         print('Saindo!')
         break
-     
+
+
+#Resolução pós aula
+
+
+gamesString = 'demon souls,dark souls 1 prepare to die edition,dark souls 2 schollar of first sin,dark souls 3,elden ring,lies of p,sekiro shadow dies twice'.upper()
+jogosDisponiveis = gamesString.split(',')
+precoJogos = [70.00,69.00,22.00,48.00,200.00,180.00,80.00]
+quantidadeJogos = [3,1,2,4,5,6,7]
+precoFabrica = [40.00,40.00,40.00,40.00,40.00,40.00,40.00]
+vendas = 0
+compraEstoque = 0
+saldoFinal = 0
+op = 0
+print('\n---BEM VINDO---')
+
+
+while op != 4:
+    print('\nOperações disponiveis: 1 - Registrar venda / 2 - Compra de estoque / 3 - Resumo loja / 4 - Caixa fechado:\n ')
+    op = int(input('\nOperação\n'))
+    if op == 1:
+        jogoComprado = input(f'\nEscolha um jogo para comprar: \n {jogosDisponiveis}:\n').upper()
+        indiceJogoEscolhido = jogosDisponiveis.index(jogoComprado)
+        quantidadeCompra = int(input('\nQuantidade: \n'))
+        if quantidadeCompra <= quantidadeJogos[indiceJogoEscolhido] and jogoComprado in jogosDisponiveis:
+            quantidadeJogos[indiceJogoEscolhido] -= quantidadeCompra
+            vendas += precoJogos[indiceJogoEscolhido] * quantidadeCompra
+            print('\nJogo comprado com sucesso!\n')
+        else:
+            print("\njogo não disponivel no estoque\n")
+    elif op == 2:
+        jogoParaEstoque = input(f'\nDigite o jogo que deseja adicionar ao estoque:\n{jogosDisponiveis}: \n').upper()
+        indiceJogoEscolhido = jogosDisponiveis.index(jogoParaEstoque)
+        quantidadeParaEstoque = int(input('\nQuantidade: \n'))
+        if precoFabrica[indiceJogoEscolhido] <= vendas and jogoParaEstoque in jogosDisponiveis:
+            quantidadeJogos[indiceJogoEscolhido] += quantidadeParaEstoque
+            compraEstoque += precoFabrica[indiceJogoEscolhido] * quantidadeParaEstoque
+            print('\nCompra para estoque realizada!\n')
+        else:
+            print('\nSaldo insuficiente\n')
+    elif op == 3:
+        saldoFinal = vendas - compraEstoque
+        print(f'\nJogos disponiveis: {jogosDisponiveis}\nPreço jogos disponiveis: {precoJogos}\nQuantidade de jogos disponiveis: {quantidadeJogos}\nvendas: {vendas}\nCompra de Estoque: {compraEstoque}\nLucro dia: {saldoFinal}\n')
+    elif op == 4:
+        print('\nSaindo!\n')
+        break        
+    
+
+
+
