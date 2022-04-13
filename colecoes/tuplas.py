@@ -310,9 +310,6 @@ print(tupla27) # (2, 4, 5566, 123)
 
 
 
-
-
-
 #                     QUANDO USAR UMA TUPLA?
 
 
