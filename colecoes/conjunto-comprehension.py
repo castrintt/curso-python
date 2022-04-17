@@ -40,6 +40,10 @@ print(conjunto3) # {1, 2, 3, 4, 5, 70, 100, 80, 90, 60}
 
 
 
+
+
+
+
 # DESAFIO
 
 # 1) - Faça usando comprehension de conjuntos imprimir os multiplos de 3 , porem os não multiplos devem ser impressos com a mensagem print('Desconhecido': {numero})
