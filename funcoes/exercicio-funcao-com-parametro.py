@@ -61,47 +61,57 @@
 
 
 
-fibo = []
-
-def fibonacci(condicao, a = 1, b= 1, auxiliar = 0):
-    global fibo
-    fibo.append(a)
-    a , b = b , a + b
-    # a = b
-    # b = a + b
-    auxiliar += 1
-    if condicao == auxiliar:
-        print(fibo)
-        return
-    else:
-        fibonacci(condicao, a, b , auxiliar)
+#         resolução principal
 
 
-quantia = int(input('Quantos numeros da lista de fibonacci você deseja ver? '))
-
-fibonacci(quantia)
 
 
-# resolução 1 professor
+# fibo = []
+
+# def fibonacci(condicao, a = 1, b= 1, auxiliar = 0):
+#     global fibo
+#     fibo.append(a)
+#     a , b = b , a + b
+#     # a = b
+#     # b = a + b
+#     auxiliar += 1
+#     if condicao == auxiliar:
+#         print(fibo)
+#         return
+#     else:
+#         fibonacci(condicao, a, b , auxiliar)
 
 
-listaSF = []
+# quantia = int(input('Quantos numeros da lista de fibonacci você deseja ver? '))
 
-def fibonacci(stop,a = 1, b = 1, aux = 0):
-    global listaSF 
-    listaSF.append(a)
-    a, b = b, a + b
-    aux += 1
-    if stop == aux:
-        print(listaSF)
-        return 0
-    else:
-        return fibonacci(stop,a,b,aux)
+# fibonacci(quantia)
 
 
-stop = int(input('Digite a quantidade de termos: '))
 
-fibonacci(stop)
+
+#                  resolução 1 professor
+
+
+
+
+
+# listaSF = []
+
+# def fibonacci(stop,a = 1, b = 1, aux = 0):
+#     global listaSF 
+#     listaSF.append(a)
+#     a, b = b, a + b
+#     aux += 1
+#     if stop == aux:
+#         print(listaSF)
+#         return 0
+#     else:
+#         return fibonacci(stop,a,b,aux)
+
+
+# stop = int(input('Digite a quantidade de termos: '))
+
+# fibonacci(stop)
     
 
 
@@ -109,4 +119,93 @@ fibonacci(stop)
 
 
 # minha resolução 2 
+
+
+
+
+usuarios = []
+logado = False
+
+def cadastro():
+    global usuarios
+    user = dict(nome=input('Cadastre um nome de usuario: '), senha=input('Cadastre uma senha: ') )    
+    usuarios.append(user)
+    print('Usuario cadastrado!')
+    return usuarios
+
+def login():
+    global usuarios, logado
+    nomeUsuario = input('Digite login: ')
+    senhaUsuario = input('Digite a senha: ')
+    for usuario in usuarios:
+        if usuario['nome'] == nomeUsuario and usuario['senha'] == senhaUsuario:
+            print('Usuario Logado')
+            print(f'Bem vindo {nomeUsuario}')
+            logado = True
+            return logado
+        else:
+            print('Usuario não encontrado, tente fazer o cadastro!')
+            return cadastro(), logado
+
+def alterandoSenha():
+    global alterarsenha, usuarios, logado
+    if alterarSenha == 1 and logado == True:
+        user = input('Digite o nome do usuario a alterar a senha: ')
+        senha = input('Digite sua senha antiga: ')
+        for usuario in usuarios:
+            if usuario['senha'] == senha and usuario['nome'] == user:
+                novaSenha = input('Digite sua nova senha: ')
+                confirma = input('Confirme a nova senha por favor: ')
+                if confirma == novaSenha:
+                    print('Senha alterada com sucesso!')
+                    usuario['senha'] = novaSenha           
+                    return usuario['senha']
+                else:
+                    print('As senhas não são iguais, por favor tente novamente!')
+                    return alterandoSenha()
+            else:
+                print('Usuario ou senha incorretos')
+                return alterandoSenha()
+    elif logado == True and alterarSenha == 2:
+        return
+    elif logado == False and alterarSenha == 1:
+        print('Usuario não está Logado!, tente Realizar o login!')
+        return login()   
+        
+def logOut():
+    global usuarios, logado
+    opcao = int(input('Deseja fazer logout? 1 - sim, 2 - nao: '))
+    if opcao == 1:
+        logado == False
+        log = int('Se deseja fazer login novamente digite 1, caso contrario digite 2')
+        if log == 1:
+            return login()
+        else:
+            return          
+    else:
+        print('Usuario ainda logado!')
+        return 
+    
+    
+cadastro()   
+print(usuarios)
+print(logado)
+
+login()
+print(usuarios)
+print(logado)
+
+alterarSenha = int(input('Deseja alterar sua senha? 1 - sim,  2 - não: '))
+alterandoSenha()     
+print(usuarios)
+print(logado) 
+
+logOut()
+print(usuarios)
+print(logado)
+
+
+
+# resolução 2 professor
+
 
