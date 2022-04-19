@@ -15,12 +15,7 @@
 
 # Só é possivel realizar logout se o usuario estiver logado.
 
-
-
-
-
 #  resolução exercicio 1
-
 
 #fibonacci
 
@@ -59,12 +54,7 @@
 #   else
 #       return [fib(n-1) + fib(n-2)] + agregado
 
-
-
-#         resolução principal
-
-
-
+#         resolução principal (minha) exercicio 1
 
 # fibo = []
 
@@ -81,24 +71,16 @@
 #     else:
 #         fibonacci(condicao, a, b , auxiliar)
 
-
 # quantia = int(input('Quantos numeros da lista de fibonacci você deseja ver? '))
 
 # fibonacci(quantia)
 
-
-
-
-#                  resolução 1 professor
-
-
-
-
+#                  resolução exercicio 1 professor
 
 # listaSF = []
 
 # def fibonacci(stop,a = 1, b = 1, aux = 0):
-#     global listaSF 
+#     global listaSF
 #     listaSF.append(a)
 #     a, b = b, a + b
 #     aux += 1
@@ -108,60 +90,59 @@
 #     else:
 #         return fibonacci(stop,a,b,aux)
 
-
 # stop = int(input('Digite a quantidade de termos: '))
 
 # fibonacci(stop)
-    
 
-
-
-
-
-# minha resolução 2 
-
-
-
+# minha resolução exercicio 2
 
 usuarios = []
 logado = False
 
 def cadastro():
     global usuarios
-    user = dict(nome=input('Cadastre um nome de usuario: '), senha=input('Cadastre uma senha: ') )    
+    user = dict(nome=input('Cadastre um nome de usuario: '), senha=input('Cadastre uma senha: ') )
     usuarios.append(user)
     print('Usuario cadastrado!')
+    print('\n')
     return usuarios
 
 def login():
     global usuarios, logado
     nomeUsuario = input('Digite login: ')
     senhaUsuario = input('Digite a senha: ')
-    for usuario in usuarios:
+    for usuario in usuarios:    # AJUDA AQUI
         if usuario['nome'] == nomeUsuario and usuario['senha'] == senhaUsuario:
             print('Usuario Logado')
             print(f'Bem vindo {nomeUsuario}')
+            print('\n')
             logado = True
             return logado
         else:
             print('Usuario não encontrado, tente fazer o cadastro!')
+            print('\n')
             return cadastro(), logado
 
 def alterandoSenha():
-    global alterarsenha, usuarios, logado
+    global usuarios, logado
+    alterarSenha = int(input('Deseja alterar sua senha? 1 - sim,  2 - não: '))
     if alterarSenha == 1 and logado == True:
         user = input('Digite o nome do usuario a alterar a senha: ')
         senha = input('Digite sua senha antiga: ')
+        print('\n')
         for usuario in usuarios:
             if usuario['senha'] == senha and usuario['nome'] == user:
                 novaSenha = input('Digite sua nova senha: ')
                 confirma = input('Confirme a nova senha por favor: ')
+                print('\n')
                 if confirma == novaSenha:
                     print('Senha alterada com sucesso!')
-                    usuario['senha'] = novaSenha           
+                    print('\n')
+                    usuario['senha'] = novaSenha
                     return usuario['senha']
                 else:
                     print('As senhas não são iguais, por favor tente novamente!')
+                    print('\n')
                     return alterandoSenha()
             else:
                 print('Usuario ou senha incorretos')
@@ -170,42 +151,136 @@ def alterandoSenha():
         return
     elif logado == False and alterarSenha == 1:
         print('Usuario não está Logado!, tente Realizar o login!')
-        return login()   
-        
+        print('\n')
+        return login()
+
 def logOut():
     global usuarios, logado
-    opcao = int(input('Deseja fazer logout? 1 - sim, 2 - nao: '))
+    opcao = int(input('Deseja fazer logout? 1 - sim, 2 - nao: \n'))
     if opcao == 1:
         logado == False
-        log = int('Se deseja fazer login novamente digite 1, caso contrario digite 2')
+        print('Logout realizado')
+        log = int(input('Se deseja fazer login novamente digite 1, caso contrario digite 2: \n'))
         if log == 1:
             return login()
         else:
-            return          
+            return
     else:
         print('Usuario ainda logado!')
-        return 
-    
-    
-cadastro()   
-print(usuarios)
-print(logado)
+        print('\n')
+        return
 
-login()
-print(usuarios)
-print(logado)
+def operacao():
+    global usuarios, logado
+    op = int(input('Digite a operação que deseja realizar: 1 - cadastro, 2 - login, 3 - alterar senha, 4 - logout , 5 - Estatus cadastros, 6 - sair do sistema: \n'))
+    while op != 6:
+        if op == 1:
+            cadastro()
+            return operacao()
+        if op == 2:
+            login()
+            return operacao()
+        if op == 3:
+            alterandoSenha()
+            return operacao()
+        if op == 4:
+            logOut()
+            return operacao()
+        if op == 5:
+            print('\n')
+            print(usuarios)
+            print('\n')
+            return operacao()
+    print('Saindo do sistema')
+    logado = False
+    return
 
-alterarSenha = int(input('Deseja alterar sua senha? 1 - sim,  2 - não: '))
-alterandoSenha()     
-print(usuarios)
-print(logado) 
+operacao()
 
-logOut()
-print(usuarios)
-print(logado)
 
 
 
 # resolução 2 professor
 
+login = False
+cadastroFeito = False
+op = 0
+username = ' '
+senha = ' '
 
+
+def intro():
+    global cadastro, op, login
+    while op != 5:
+        print('1 - Cadastro\n2 - Login\n3 - Mudar senha\n4 - Logout\n5 - Sair')
+        op = int(input('__________Opção: '))
+        
+        if op == 1:
+            if not cadastroFeito:
+               cadastro()
+               pass
+            else:
+                print('_____________Cadastro ja feito anteriormente________')
+        elif op == 2:
+            if cadastroFeito:
+                loginSistema()
+                pass
+            else:
+                print('__________ Faça o cadastro antes de fazer login___________')
+        elif op == 3:
+            if cadastroFeito:
+                mudarSenha()
+                pass
+            else:
+                print('____________Faça o cadastro antes de alterar a senha__________')
+        elif op == 4:
+            if cadastroFeito:
+                logOut()
+                pass
+            else:
+                print('______Para fazer logout primeiro tem que estar cadastrado______')
+        elif op == 5:
+            return
+        
+def cadastro():
+    global username, senha, cadastroFeito
+    username = input('______ Digite seu nome de usuario: ')
+    senha = input('_______Digite sua senha: ')
+    cadastroFeito = True
+    return intro()
+
+def loginSistema():
+    global username, login, senha
+    if not login:
+        testeUsuario = input('______Username: ')
+        testeSenha = input('_______Senha: ')
+        if testeUsuario == username and testeSenha == senha:
+            login = True
+    if login:
+        print('_____Você esta logado!______')
+    else:
+        print('______Username ou senha incorretos______')
+    
+    return intro()
+
+def mudarSenha():
+    global login, senha
+    if login:
+        testeSenha = input('_____Senha atual: ')
+        if testeSenha == senha:
+            senha = input('________Digite a nova senha: ')
+        else:
+            print('____________Senha atual incorreta________')
+    else:
+        print('______Faça login antes_____')
+    return intro()
+
+
+def logOut():
+    global login
+    login = False
+    print('_____Deslogado!_____')
+    return intro()
+
+
+intro()
