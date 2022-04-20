@@ -5,21 +5,47 @@
  
  
 #minha resolução
-  
+
+numeroUsuario = int(input('Digite um numero: '))
+
 def recebeNumero(num):
-    stringNumero = str(num)
-    lista = []
-    for valor in stringNumero:
-       lista.append(int(valor))
-    
-    tamanhoLista = len(lista)
-    for indice,item in enumerate(lista):
-        print(f'Indice : {indice} // Item : {item}')
+    if num <= 0:
+        print('Numero invalido, tente novamente')
+    else:
+        stringNumero = str(num)
+        lista = []
+        for valor in stringNumero:
+            lista.append(int(valor))
+        for indice,item in enumerate(lista):
+            print(f'Item : {indice + 1} // Numero : {item}')
     
     print(f'A soma de todos algorismos de {num} é {sum(lista)} e seus algorismos são ')
     
-recebeNumero(251)
+recebeNumero(numeroUsuario)
 
 
 
 # resolução professor
+
+
+def somaAlgarismos(numero):
+    divisor = 1
+    num_algarismo = 0
+    soma = 0
+    while True:
+        if (numero // divisor) == 0:
+            break
+        else:
+            num_algarismo += 1
+            divisor *= 10    
+      
+    for valor in range(num_algarismo):
+        soma += ((numero // (10 ** valor)) % 10)
+    return soma
+    
+    
+numero = int(input('Digite um numero: '))
+if numero >= 0:
+    print(somaAlgarismos(numero))
+else:
+    print('Numero invalido')
