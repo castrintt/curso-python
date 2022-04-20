@@ -4,30 +4,110 @@
      # - se não houve: apresentar a classificação final:
      # - se houve : pedir ao ususario quem trapaceou e quem foi prejudicado. depois, troca-los de posições. Por fim, apresentar a classificação final.
      
+# MINHA RESOLUÇÃO     
 
-def corredores(n1,n2,n3,**kwargs):
-    dicionario = {
-        'pos1':n1,
-        'pos2':n2,
-        'pos3':n3
+
+def corredores(corredor1,corredor2,corredor3,**ultimos):
+   
+    podium = {
+        'Primeiro':corredor1,
+        'Segundo':corredor2,
+        'Terceiro':corredor3
     }
-    trapaceiro = input('Digite o trapaceiro: ')
-    prejudicado = input('Digite o prejudicado: ')
     
-    for chave, valor in kwargs.items():
-        if trapaceiro == valor:
-            kwargs[chave] = prejudicado       
-        elif prejudicado == valor:
-            kwargs[chave] = trapaceiro          
-        for key, value in dicionario.items():
-            if prejudicado == value:
-                dicionario[key] = trapaceiro
-            elif trapaceiro == value:
-                dicionario[chave] = prejudicado     
-                
-    print(n1,n2,n3,kwargs['pos4'], kwargs['pos5'], kwargs['pos6'])            
-                
-                
-                      
+    podium.update(ultimos)
+    print('\n')
+    print(podium)
+    print('\n')
+    
+    confirmacao = int(input('Houve trapaceiro? 1 - sim // 2 - nao: '))
+    
+    if confirmacao == 1:
+        trapaceiro = input('Digite quem foi o trapaceiro: ')
+        prejudicado = input('Digite quem foi o prejudicado: ')
+        print('\n')
+    
+        for posicao, corredor in podium.items():
+            if corredor == trapaceiro:  
+                podium[posicao] = prejudicado
 
-corredores('mercurio','papa leguas','sonic',pos4='flash',pos5='ligeirinho',pos6='super homem')
+            elif corredor == prejudicado:
+                podium[posicao] = trapaceiro
+                print(podium)
+                print('\n')
+                return
+    else:
+        print(podium)
+        print('\n')
+        return
+      
+
+corredores('flash','papa leguas','super homem',Quarto='sonic',Quinto='ligeirinho',Sexto='mercurio')
+
+
+# RESOLUÇÂO PROFESSOR
+
+
+def classParcial(primeiro,segundo,terceiro,**outros):
+    op = input('Houve trapaça?: s/n ')
+    quarto = ''
+    quinto = ''
+    ultimo = ''
+    if op == 'n':
+        for posicao, corredor in outros.items():
+            if posicao == '4':
+                quarto = corredor
+            elif posicao == '5':
+                quinto = corredor
+            elif posicao == '6':
+                ultimo  == corredor
+                
+        classFinal(primeiro, segundo,terceiro,quarto,quinto,ultimo)
+        
+    elif op == 's':
+        colocacao = [primeiro,segundo,terceiro]
+        colocacao.extend(outros.values())
+        
+        babaca = input('Quem trapaceou? : ')
+        vitima = input('Quem foi prejudicado? : ')
+        
+        posBabaca = colocacao.index(babaca)
+        posVitima = colocacao.index(vitima)
+        
+        colocacao[posBabaca] = vitima
+        colocacao[posVitima] = babaca
+        
+        classFinal(*colocacao)
+    else: 
+        print('Digite uma opção valida!')
+        
+    
+    
+def classFinal(primeiro,segundo,terceiro,quarto,quinto,ultimo):
+    print('Classificação final')
+    print(f'primeiro: {primeiro}')
+    print(f'Segundo: {segundo}')
+    print(f'Terceiro: {terceiro}')
+    print(f'Quarto: {quarto}')
+    print(f'Quinto: {quinto}')
+    print(f'Ultimo: {ultimo}')
+    
+    
+    
+
+pri = input('Vencedor:')
+seg = input('Segundo: ')
+ter = input('Terceiro: ')
+qua = input('Quarto: ')
+qui = input('Quinto: ')
+ult = input('ultimo: ')
+
+
+outros = {
+    '4':qua,
+    '5':qui,
+    '6':ult
+}
+
+
+    
