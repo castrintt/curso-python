@@ -45,6 +45,9 @@ def corredores(corredor1,corredor2,corredor3,**ultimos):
 corredores('flash','papa leguas','super homem',Quarto='sonic',Quinto='ligeirinho',Sexto='mercurio')
 
 
+
+
+
 # RESOLUÇÂO PROFESSOR
 
 
