@@ -221,3 +221,4 @@ correta('igor',*telefones,**dados)
 
 # Veja que por estar na ordem correta, o python ignora o argumenta passado como default (cidade) e ja passa para a **kwarg
 
+
