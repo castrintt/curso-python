@@ -30,3 +30,40 @@ for chave, valor in finalNotasAlunos.items():
 # Aluno: isabela // Nota Final: 230
     
 # print(finalNotasAlunos) # {'marcelo': 220, 'igor': 90, 'beatriz': 110, 'isabela': 230}
+
+for nome, notas in finalNotasAlunos.items():
+    if notas == max(finalNotasAlunos.values()):
+        print(f'O aluno com mais pontos foi: {nome} com {notas} pontos!') # O aluno com mais pontos foi: isabela com 230 pontos!
+
+
+# resolução professor
+
+
+nomes = ['maria joaquina','dom pedro','nopoleão','chaves','jeniffer lopez']
+
+provaCorrida = [2,7.5,9,8.67,6.8]
+provaEscalada = [1,8,4,6.3,9,1]
+provaOperMatem = [0,8.7,5.8,10,4.3]
+
+listaNotas = []
+
+tabela = zip(provaCorrida,provaEscalada,provaOperMatem)
+
+for notas in tabela:
+    listaNotas.append(sum(notas))
+    
+tabelaFinal = zip(nomes,listaNotas)
+
+dicionarioFinal = dict(tabelaFinal)
+
+vencedor = ''
+
+pontos = 0 
+
+for part, pts in dicionarioFinal.items():
+    print(f'Participante: {part}. Pontos: {pts}')
+    if pts > pontos:
+        pontos = pts
+        vencedor = part
+        
+print(f'\nVencedor : {vencedor}  - Pontos: {pontos} ')
