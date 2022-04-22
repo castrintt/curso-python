@@ -61,3 +61,4 @@ if tamanho % 2 == 1:
     print(f'Valor intermediario: {listaInvertida[tamanho // 2]}')
 else:
     print(f'Media dos valores intermediarios: {(listaInvertida[tamanho // 2] + listaInvertida[(tamanho//2) -1 ]) // 2} ')
+    
