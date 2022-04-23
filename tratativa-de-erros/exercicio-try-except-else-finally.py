@@ -8,12 +8,29 @@ opcoes_viagem = {
     3:'Japao',
     4:'Brasil'
 }
+try:
+    nome = input('Digite seu nome: ')
+    validacao = int(nome)
+except ValueError:
+    try:
+        idade = int(input('Digite sua idade: '))
+    except ValueError:
+        print('Idade deve receber um valor inteiro!')
+    else:
+        try:
+            lugar = int(input('Digite o numero para escolha do lugar: \n1- EUA\n2- Franca\n3- Japao\n4- Brasil \n'))
+        except ValueError:
+            print('Lugar deve receber valor inteiro de 1 a 4!')
+        else:
+            try:
+                pais = opcoes_viagem[lugar]
+            except KeyError:
+                print('Você SOMENTE DEVE digitar um numero de 1 a 4!')
+            else:
+                print(f'Olá {nome} Você escolheu viajar para {pais}!')
+else:
+    print('Nome não deve receber valores Numericos')
+finally:
+    print('cadastro finalizado!')   
 
-nome = input('Digite seu nome: ')
-idade = int(input('Digite sua idade: '))
-lugar = int(input('Digite o numero para escolha do lugar: \n1- EUA\n2- Franca\n3- Japao\n4- Brasil \n'))
-pais = opcoes_viagem[lugar]
-print(f'Olá {nome} Você escolheu viajar para o {pais}!')
-print('cadastro finalizado!')   
-
-
+    
