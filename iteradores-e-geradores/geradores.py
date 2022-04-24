@@ -117,3 +117,25 @@ def fibonacci(max):
 for x in fibonacci(100000):
     print(x)
 # aumento de 1% somente no pico
+
+
+
+
+
+# DIFERENÇA ENTRE RETURN E YIELD
+
+
+
+# Return envia um valor especificado de volta para seu chamador, enquanto Yield pode produzir uma sequência de valores. Devemos usar o Yield quando queremos iterar em uma sequência, mas não queremos armazenar a sequência inteira na memória.
+
+# O Yield é usado em geradores Python. Uma função geradora é definida como uma função normal, mas sempre que precisa gerar um valor, ela o faz com a palavra-chave Yield em vez de return. Se o corpo de um def contiver yield, a função se tornará automaticamente uma função geradora.
+
+
+
+# Ele retorna um valor mantendo o estado de onde parou. Quando executa de novo ele continua de onde parou. Ele controla o estado de um enumerador entre execuções da função.
+
+
+#OU SEJA O YIELD MANTEM O ESTADO, ELE EXECUTA APARTIR DE ONDE PAROU, NO CASO DO RETURN, ELE COMEÇARIA A EXECUÇÃO TODA DE NOVO
+
+
+# vai pegando uma semente cada vez. Mas é com interrupções. O yield é um return, ele encerra a execução, ele interrompe. Mas o saco de sementes continua lá do jeito que você deixou. Não começa um saco novo toda vez que chamar, como ocorreria no return.
