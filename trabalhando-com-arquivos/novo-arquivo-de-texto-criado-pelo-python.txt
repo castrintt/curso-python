@@ -1,0 +1,2 @@
+Meu nome é igor, seja bem vindo a mais uma aula de python
+Acabamos de criar esse arquivo txt usando python

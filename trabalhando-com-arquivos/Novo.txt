@@ -1,0 +1,4 @@
+ola
+meu nome é igor
+estou escrevendo em um arquivo txt usando Python!!
+olha que coisa legal!
