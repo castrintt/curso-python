@@ -47,13 +47,9 @@ def tipo(*tipos): # mesma coisa que args #(recebendo os tipos complex, float)
         return convertendo_dados
     return decorando
 
-
-
 @tipo(complex,float)
 def imprimindo(a,b):
     print(f'Numero complexo: {a} , numero Flutuante: {b}')
-
-
 
 imprimindo('2',2)
 

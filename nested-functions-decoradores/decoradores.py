@@ -2,7 +2,7 @@
 # OBS - para utilizar a função declaradora devemos declara-la antes de usar o declarador
 
 # Lembrando que dentro da função declaradora devemos usar como parametro a função que queremos decorar!
-
+# OBS - A FUNÇÃO MAIS EXTERNA DA DECORADORA RECEBE A FUNCAO E A INTERNA RECEBE OS PARAMETROS (VIA ARGS)
 # como declarar
 # sintaxe : @nome_da_funcao_decoradora
         #   def função_a_ser_Decorada()
