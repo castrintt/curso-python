@@ -57,3 +57,40 @@ for indice,valor in enumerate(listaPoderNomes):
     if valor[0] == max(listaPoderesSomados):
         print(f'O personagem mais forte é : {valor[1]} com total de poder: {valor[0]}')
         
+
+# resolução professor
+
+
+class Personagem:
+    def __init__(self, nome,altura, peso , resistencia):
+        self.nome = nome
+        self.altura = altura
+        self.peso = peso
+        self.resistencia = resistencia
+
+    def poder(self, magia,persoasao,agilidade, forca):
+        self.__magia = magia
+        self.__persoasao = persoasao
+        self.__agilidade = agilidade
+        self.__forca = forca
+        return magia + persoasao + agilidade + forca
+
+
+dict_poder = {}
+
+kratos = Personagem('Kratos',1.85,90,80)
+dict_poder[kratos.nome] = kratos.poder(100,10,80,90)
+
+Ezio = Personagem('Ezio',1.60,70,60)
+dict_poder[Ezio.nome] = Ezio.poder(0,80,80,90)
+
+joel = Personagem('joel',1.8,80,80)
+dict_poder[joel.nome] = joel.poder(100,10,78,90)
+
+print(dict_poder)
+
+listaPoderes = list(dict_poder.values())
+
+for chave, valor in dict_poder.items():
+    if valor == max(listaPoderes):
+        print(f'Personagem mais poderoso é  {chave} com poder de {valor}')
