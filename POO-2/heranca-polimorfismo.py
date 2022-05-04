@@ -1,52 +1,52 @@
-# # 1 ) herança 
-# # expande a sua classe / sua classe vai ter mais alcance / utiliza menos codigo e da mais poder a sua classe
+# 1 ) herança 
+# expande a sua classe / sua classe vai ter mais alcance / utiliza menos codigo e da mais poder a sua classe
 
-# # a classe que herda de uma classe (pai) tem todos os atributos e metodos presentes na classe pai
-# # ou seja, uma classe (filho) herda todas os atributos e metodos da classe (pai)
+# a classe que herda de uma classe (pai) tem todos os atributos e metodos presentes na classe pai
+# ou seja, uma classe (filho) herda todas os atributos e metodos da classe (pai)
 
-# # ex
+# ex
 
-# # vamos montar 2 classes (televisao e radio)
+# vamos montar 2 classes (televisao e radio)
 
-# class Televisao:
+class Televisao:
 
-#     def __init__(self,marca, peso,volume, polegadas):
-#         self.__marca = marca
-#         self.__peso = peso
-#         self.__volume = volume
-#         self.__polegadas = polegadas
+    def __init__(self,marca, peso,volume, polegadas):
+        self.__marca = marca
+        self.__peso = peso
+        self.__volume = volume
+        self.__polegadas = polegadas
 
 
-#     @property
-#     def volume(self):
-#         return f'O volume esta em {self.__volume}'
+    @property
+    def volume(self):
+        return f'O volume esta em {self.__volume}'
 
 
     
-# class Radio:
+class Radio:
 
-#     def __init__(self,marca, peso, volume, frequencia):
-#         self.__marca = marca
-#         self.__peso = peso
-#         self.__volume = volume
-#         self.__frequencia = frequencia
+    def __init__(self,marca, peso, volume, frequencia):
+        self.__marca = marca
+        self.__peso = peso
+        self.__volume = volume
+        self.__frequencia = frequencia
 
-#     @property
-#     def volume(self):
-#         return f'O volume esta em {self.__volume}'
+    @property
+    def volume(self):
+        return f'O volume esta em {self.__volume}'
 
 
-# # agora vamos instanciar as 2 classes
+# agora vamos instanciar as 2 classes
 
-# tv = Televisao('phillips',3.6,30,50)
-# radio = Radio('Lg',2.5, 60, 103.53)
+tv = Televisao('phillips',3.6,30,50)
+radio = Radio('Lg',2.5, 60, 103.53)
 
-# # executando a propriedade (metodo get) para ter acesso ao volume
-# print(tv.volume)
-# print(radio.volume)
+# executando a propriedade (metodo get) para ter acesso ao volume
+print(tv.volume)
+print(radio.volume)
 
-# # O volume esta em 30
-# # O volume esta em 60
+# O volume esta em 30
+# O volume esta em 60
 
 
 
