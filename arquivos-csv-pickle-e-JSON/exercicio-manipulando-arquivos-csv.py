@@ -1,0 +1,3 @@
+# 1 ) Um time de futsal formado pelo arquivo atletas.csv, que contem nome, altura(cm) e peso(kg) de cada esportista, deseja fazer uma pesquisa e saber quais atletas tem altura superior a 170cm e que possui peso menor que 80kg, imprima o nome deles. Dois reforços entraram para o time no inicio da temporada, Roberto, 177, 77kg e Adriano. 165,60kg; Atualiza o arquivo adicionando os jogadores e leia-o novamente
+
+# a+ - adiciona no final
