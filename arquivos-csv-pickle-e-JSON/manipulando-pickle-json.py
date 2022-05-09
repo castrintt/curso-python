@@ -59,3 +59,6 @@ with open('filmes.pickle','rb') as filmes:
     print(f'O filme {filme1.nome} teve como personagem o {filme1.personagem}') # O filme senhor dos aneis teve como personagem o Frodo
     print(f'O filme {filme2.nome} teve como personagem a {filme2.personagem}') # O filme Jogos vorazes teve como personagem a Katniss
     
+
+
+# CONTINUAR JSON!!!!!!!!!<<L<<<<<<<-----
