@@ -15,7 +15,10 @@
 # função que converte o padrao 24hr para 12hrs
 
 def converte_padrao(hora, min):
-    pass
+    if hora >= 12:
+        hora = hora -12
+        return f'{hora}:{min} P.M'
+    return f'{hora}:{min} A.M'
 
 
 
@@ -24,11 +27,9 @@ def converte_padrao(hora, min):
 
 def par_impar(numero):
     if numero % 2 == 0:
-        print(f'{numero} é par')
-        return numero
+        return True
     else:
-        print(f'{numero} é impar')
-        return numero
+        return False
 
 
 # É SEMPRE CONVENIENTE CRIAR UM MODULO A PARTE PARA EXECUTAR OS TESTES SEPARADAMENTE
